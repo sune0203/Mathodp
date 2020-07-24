@@ -7,6 +7,13 @@ public class UserDTO {
 	private int num;
 	private String id;
 	private String pw;
+	private String name;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	private String em;
 	private String addr;
 	private String hp;

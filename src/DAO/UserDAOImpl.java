@@ -25,15 +25,16 @@ public class UserDAOImpl implements UserDAO{
 
 		try {
 			conn = DB.conn();
-			String sql = "INSERT INTO user_tb (id, pw, em, addr, hp, data) VALUES(?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO user_tb (id, pw, name, em, addr, hp, data) VALUES(?, ?, ?, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
 			// 4. 데이터 binding
 			pstmt.setString(1, dto.getId());
 			pstmt.setString(2, dto.getPw());
-			pstmt.setString(3, dto.getEm());
-			pstmt.setString(4, dto.getAddr());
-			pstmt.setString(5, dto.getHp());
-			pstmt.setTimestamp(6, dto.getTm());
+			pstmt.setString(3, dto.getName());
+			pstmt.setString(4, dto.getEm());
+			pstmt.setString(5, dto.getAddr());
+			pstmt.setString(6, dto.getHp());
+			pstmt.setTimestamp(7, dto.getTm());
 			
 			int count = pstmt.executeUpdate();
 			
@@ -79,6 +80,7 @@ public class UserDAOImpl implements UserDAO{
 				UserDTO dto = new UserDTO();
 				dto.setId(rs.getString("id"));
 				dto.setPw(rs.getString("pw"));
+				dto.setName(rs.getString("name"));
 				dto.setEm(rs.getString("em"));
 				dto.setAddr(rs.getString("addr"));
 				dto.setHp(rs.getString("hp"));
@@ -129,6 +131,7 @@ public class UserDAOImpl implements UserDAO{
 				 dto = new UserDTO();
 				 dto.setId(rs.getString("id"));
 				 dto.setPw(rs.getString("pw"));
+				 dto.setName(rs.getString("name"));
 				 dto.setEm(rs.getString("em"));
 				 dto.setAddr(rs.getString("addr"));
 				 dto.setHp(rs.getString("hp"));

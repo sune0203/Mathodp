@@ -11,6 +11,7 @@ public interface UserDAO {
 	//ID로 검색
 	public UserDTO selectid(String id);
 	
+
 	//전체 데이터 가져오기
 	public ArrayList<UserDTO> select();
 }
